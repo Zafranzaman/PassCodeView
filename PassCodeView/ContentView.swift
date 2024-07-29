@@ -10,13 +10,18 @@ import SwiftUI
 struct ContentView: View {
     @State  var passcode: String = ""
     var body: some View {
-        VStack {
-            PassCodeView(passcode: $passcode, countOfDigits: 4, didEnterLastDigit: { passcode in
-                
-                print(passcode)
-            })
+        ZStack {
+            Color.white
+                .ignoresSafeArea(.all)
+                .opacity(0.1)
+            VStack {
+                PassCodeView(passcode: $passcode, countOfDigits: 4, didEnterLastDigit: { passcode in
+                    
+                    print(passcode)
+                })
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
